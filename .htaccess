@@ -1,0 +1,47 @@
+
+# BEGIN WordPress
+# The directives (lines) between "BEGIN WordPress" and "END WordPress" are
+# dynamically generated, and should only be modified via WordPress filters.
+# Any changes to the directives between these markers will be overwritten.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
+# BEGIN WordPress WPO Tweaks by Fernando Tellado
+# The directives (lines) between "BEGIN WordPress WPO Tweaks by Fernando Tellado" and "END WordPress WPO Tweaks by Fernando Tellado" are
+# dynamically generated, and should only be modified via WordPress filters.
+# Any changes to the directives between these markers will be overwritten.
+<IfModule mod_expires.c>
+# Activar caducidad de contenido
+ExpiresActive On
+# Directiva de caducidad por defecto
+ExpiresDefault "access plus 1 month"
+# Para el favicon
+ExpiresByType image/x-icon "access plus 1 year"
+# Imagenes
+ExpiresByType image/gif "access plus 1 month"
+ExpiresByType image/png "access plus 1 month"
+ExpiresByType image/jpg "access plus 1 month"
+ExpiresByType image/jpeg "access plus 1 month"
+# CSS
+ExpiresByType text/css "access 1 month"
+# Javascript
+ExpiresByType application/javascript "access plus 1 year"
+</IfModule>
+<IfModule mod_deflate.c>
+# Activar compresión de contenidos estáticos
+AddOutputFilterByType DEFLATE text/plain text/html
+AddOutputFilterByType DEFLATE text/xml application/xml application/xhtml+xml application/xml-dtd
+AddOutputFilterByType DEFLATE application/rdf+xml application/rss+xml application/atom+xml image/svg+xml
+AddOutputFilterByType DEFLATE text/css text/javascript application/javascript application/x-javascript
+AddOutputFilterByType DEFLATE font/otf font/opentype application/font-otf application/x-font-otf
+AddOutputFilterByType DEFLATE font/ttf font/truetype application/font-ttf application/x-font-ttf
+</IfModule>
+# END WordPress WPO Tweaks by Fernando Tellado
